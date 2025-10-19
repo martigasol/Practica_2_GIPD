@@ -1,0 +1,13 @@
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY requirements-server.txt .
+
+RUN pip install --no-cache-dir -r requirements-server.txt
+
+COPY main-server.py .
+
+EXPOSE 5000
+
+CMD ["python","main-server.py"]
